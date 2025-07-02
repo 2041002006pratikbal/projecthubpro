@@ -161,13 +161,13 @@ export default function Layout({ children }) {
           </Typography>
         </Toolbar>
       </AppBar>
-      {/* Drawer for sidebar */}
+      
       <Box
         component="nav"
         sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
         aria-label="sidebar navigation"
       >
-        {/* Mobile drawer */}
+        
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -183,7 +183,7 @@ export default function Layout({ children }) {
         >
           {drawer}
         </Drawer>
-        {/* Desktop drawer */}
+        
         <Drawer
           variant="permanent"
           sx={{
@@ -198,7 +198,7 @@ export default function Layout({ children }) {
           {drawer}
         </Drawer>
       </Box>
-      {/* Main content */}
+      
       <Box
         component="main"
         sx={{

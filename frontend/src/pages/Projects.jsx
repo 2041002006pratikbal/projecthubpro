@@ -177,7 +177,7 @@ export default function Projects() {
     }
   };
 
-  // Delete logic
+  
   const handleDeleteOpen = (project) => {
     setSelectedProject(project);
     setDeleteOpen(true);
@@ -207,7 +207,7 @@ export default function Projects() {
     }
   };
 
-  // Refresh projects list
+  
   const refreshProjects = async () => {
     setLoading(true);
     try {
@@ -349,7 +349,7 @@ export default function Projects() {
           </Grid>
         )}
       </Box>
-      {/* Create Project Dialog */}
+      
       <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
         <DialogTitle>Create New Project</DialogTitle>
         <form onSubmit={handleSubmit}>
@@ -443,7 +443,7 @@ export default function Projects() {
           </DialogActions>
         </form>
       </Dialog>
-      {/* Edit Project Dialog */}
+      
       <Dialog open={editOpen} onClose={handleEditClose} maxWidth="sm" fullWidth>
         <DialogTitle>Edit Project</DialogTitle>
         <form onSubmit={handleEditSubmit}>
@@ -537,7 +537,7 @@ export default function Projects() {
           </DialogActions>
         </form>
       </Dialog>
-      {/* Delete Confirmation Dialog */}
+      
       <Dialog open={deleteOpen} onClose={handleDeleteClose}>
         <DialogTitle>Delete Project</DialogTitle>
         <DialogContent>
@@ -574,7 +574,7 @@ export default function Projects() {
   );
 }
 
-// Helper component for showing assigned users as avatars
+
 function AvatarGroup({ users }) {
   return (
     <Stack direction="row" spacing={-1} alignItems="center">

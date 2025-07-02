@@ -2,7 +2,7 @@ const Task = require("../models/Task");
 const Project = require("../models/Project");
 const ActivityLog = require("../models/ActivityLog");
 
-// Create Task (Admin only)
+
 exports.createTask = async (req, res) => {
   try {
     const {
@@ -39,7 +39,7 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// Get Tasks (Admin: all, Member: assigned)
+
 exports.getTasks = async (req, res) => {
   try {
     const { status, priority, dueDate, search, sortBy, sortOrder } = req.query;
@@ -68,7 +68,7 @@ exports.getTasks = async (req, res) => {
   }
 };
 
-// Get Task by ID (Admin: any, Member: assigned)
+
 exports.getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id)
@@ -87,7 +87,7 @@ exports.getTaskById = async (req, res) => {
   }
 };
 
-// Update Task (Admin: any, Member: only assigned)
+
 exports.updateTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -99,7 +99,7 @@ exports.updateTask = async (req, res) => {
       return res.status(403).json({ message: "Access denied" });
     }
 
-    // For members, only allow status updates
+
     if (req.user.role !== "Admin") {
       const { status } = req.body;
       if (status && ["Todo", "In Progress", "Completed"].includes(status)) {
@@ -110,8 +110,7 @@ exports.updateTask = async (req, res) => {
         });
       }
     } else {
-      // Admin can update all fields
-      // Track changes for activity log
+      
       const changedFields = {};
       const updatableFields = [
         "title",
@@ -154,7 +153,7 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// Delete Task (Admin only)
+
 exports.deleteTask = async (req, res) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id);
@@ -172,7 +171,7 @@ exports.deleteTask = async (req, res) => {
   }
 };
 
-// Assign Task to User (Admin only)
+
 exports.assignTask = async (req, res) => {
   try {
     const { userId } = req.body;

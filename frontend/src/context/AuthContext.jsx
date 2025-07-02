@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     if (token) {
-      // Fetch user info from token
+    
       axios
         .get("http://localhost:5000/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },

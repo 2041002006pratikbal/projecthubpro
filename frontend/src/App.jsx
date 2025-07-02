@@ -67,7 +67,6 @@ export default function App() {
   );
 }
 
-// AdminRoute component
 function AdminRoute({ children }) {
   const { user, loading } = useAuth();
   if (loading) return null;

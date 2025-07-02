@@ -93,7 +93,7 @@ export default function Tasks() {
         .then((res) => setUsers(res.data.filter((u) => u.role === "Member")))
         .catch(() => setUsers([]));
     }
-    // eslint-disable-next-line
+    
   }, [token, filters, user]);
 
   const fetchTasks = async () => {
@@ -163,7 +163,7 @@ export default function Tasks() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      // For members, only send status field
+      
       const updateData =
         user?.role === "Admin" ? editForm : { status: editForm.status };
 
@@ -628,7 +628,7 @@ export default function Tasks() {
           </DialogActions>
         </form>
       </Dialog>
-      {/* Edit Task Dialog */}
+      
       <Dialog
         open={editOpen}
         onClose={() => setEditOpen(false)}
@@ -858,7 +858,7 @@ export default function Tasks() {
           </Button>
         </DialogActions>
       </Dialog>
-      {/* Snackbar for feedback (scaffolded) */}
+      
       <Snackbar
         open={snackbar.open}
         autoHideDuration={3000}

@@ -9,13 +9,13 @@ exports.getDashboardSummary = async (req, res) => {
       projectFilter = { assignedUsers: req.user._id };
       taskFilter = { assignedTo: req.user._id };
     }
-    // Projects
+    
     const totalProjects = await Project.countDocuments(projectFilter);
     const projectsByStatus = await Project.aggregate([
       { $match: projectFilter },
       { $group: { _id: "$status", count: { $sum: 1 } } },
     ]);
-    // Tasks
+    
     const totalTasks = await Task.countDocuments(taskFilter);
     const tasksByStatus = await Task.aggregate([
       { $match: taskFilter },

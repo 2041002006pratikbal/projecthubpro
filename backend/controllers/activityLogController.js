@@ -1,6 +1,6 @@
 const ActivityLog = require("../models/ActivityLog");
 
-// Get activity logs (Admin: all, Member: own)
+
 exports.getActivityLogs = async (req, res) => {
   try {
     let filter = {};

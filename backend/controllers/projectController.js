@@ -1,7 +1,7 @@
 const Project = require("../models/Project");
 const ActivityLog = require("../models/ActivityLog");
 
-// Create Project (Admin only)
+
 exports.createProject = async (req, res) => {
   try {
     const { title, description, startDate, endDate, status, assignedUsers } =
@@ -28,7 +28,7 @@ exports.createProject = async (req, res) => {
   }
 };
 
-// Get Projects (Admin: all, Member: assigned)
+
 exports.getProjects = async (req, res) => {
   try {
     let projects;
@@ -49,7 +49,7 @@ exports.getProjects = async (req, res) => {
   }
 };
 
-// Get Project by ID (Admin: any, Member: assigned)
+
 exports.getProjectById = async (req, res) => {
   try {
     const project = await Project.findById(req.params.id).populate(
@@ -69,7 +69,6 @@ exports.getProjectById = async (req, res) => {
   }
 };
 
-// Update Project (Admin only)
 exports.updateProject = async (req, res) => {
   try {
     const oldProject = await Project.findById(req.params.id);
@@ -78,7 +77,7 @@ exports.updateProject = async (req, res) => {
     const project = await Project.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
-    // Track changes for activity log
+
     const changedFields = {};
     const updatableFields = [
       "title",
@@ -112,7 +111,7 @@ exports.updateProject = async (req, res) => {
   }
 };
 
-// Delete Project (Admin only)
+
 exports.deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
@@ -130,7 +129,7 @@ exports.deleteProject = async (req, res) => {
   }
 };
 
-// Assign Users to Project (Admin only)
+
 exports.assignUsersToProject = async (req, res) => {
   try {
     const { userIds } = req.body; // array of user IDs
