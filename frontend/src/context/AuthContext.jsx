@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
     if (token) {
     
       axios
-        .get("https://projecthubpro.onrender.com/api/auth/me", {
+        .get(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUser(res.data.user))

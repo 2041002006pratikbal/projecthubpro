@@ -63,7 +63,7 @@ export default function Projects() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const res = await axios.get("https://projecthubpro.onrender.com/api/projects", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProjects(res.data);
@@ -80,7 +80,7 @@ export default function Projects() {
   useEffect(() => {
     if (user?.role === "Admin") {
       axios
-        .get("https://projecthubpro.onrender.com/api/auth/users", {
+        .get(`${import.meta.env.VITE_API_URL}/api/auth/users`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUsers(res.data))
@@ -103,7 +103,7 @@ export default function Projects() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://projecthubpro.onrender.com/api/projects", form, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/projects`, form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSnackbar({
@@ -155,7 +155,7 @@ export default function Projects() {
     e.preventDefault();
     try {
       await axios.put(
-        `https://projecthubpro.onrender.com/api/projects/${selectedProject._id}`,
+        `${import.meta.env.VITE_API_URL}/api/projects/${selectedProject._id}`,
         editForm,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -186,7 +186,7 @@ export default function Projects() {
   const handleDeleteConfirm = async () => {
     try {
       await axios.delete(
-        `https://projecthubpro.onrender.com/api/projects/${selectedProject._id}`,
+        `${import.meta.env.VITE_API_URL}/api/projects/${selectedProject._id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -211,7 +211,7 @@ export default function Projects() {
   const refreshProjects = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("https://projecthubpro.onrender.com/api/projects", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/projects`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data);
