@@ -26,7 +26,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("https://projecthubpro.onrender.com/api/auth/register", {
         name,
         email,
         password,
@@ -49,7 +49,7 @@ export default function Register() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(to right, #f4f7fe, #fdfdff)",
+          // background: "linear-gradient(to right, #f4f7fe, #fdfdff)",
         }}
       >
         <Paper elevation={6} sx={{ p: 5, borderRadius: 4, width: "100%" }}>

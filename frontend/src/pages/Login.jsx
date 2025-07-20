@@ -26,7 +26,7 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://projecthubpro.onrender.com/api/auth/login", {
         email,
         password,
       });
@@ -48,7 +48,7 @@ export default function Login() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(to right, #f0f4ff, #f9f9ff)",
+          // background: "linear-gradient(to right, #f0f4ff, #f9f9ff)",
         }}
       >
         <Paper elevation={6} sx={{ p: 5, borderRadius: 4, width: "100%" }}>

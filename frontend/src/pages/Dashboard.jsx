@@ -23,7 +23,7 @@ export default function Dashboard() {
     async function fetchStats() {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/dashboard/summary",
+          "https://projecthubpro.onrender.com/api/dashboard/summary",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -41,7 +41,7 @@ export default function Dashboard() {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-[70vh] relative">
-        <div className="absolute top-4 right-4">
+        {/* <div className="absolute top-4 right-4">
           <div className="flex items-center gap-4 bg-white/80 px-4 py-2 rounded-xl shadow">
             <div className="text-right">
               <div className="font-semibold text-indigo-700">{user?.name}</div>
@@ -57,8 +57,8 @@ export default function Dashboard() {
               Logout
             </button>
           </div>
-        </div>
-        <div className="w-full max-w-4xl mx-auto mt-8">
+        </div> */}
+        <div className="w-full max-w-4xl mx-auto mt-8 ">
           <Typography
             variant="h4"
             fontWeight={900}
@@ -66,7 +66,7 @@ export default function Dashboard() {
             align="center"
             gutterBottom
           >
-            Welcome, {user?.name}!
+            Welcome, {user?.name} !
           </Typography>
           {loading ? (
             <Box

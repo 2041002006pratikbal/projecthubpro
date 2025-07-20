@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
     if (token) {
     
       axios
-        .get("http://localhost:5000/api/auth/me", {
+        .get("https://projecthubpro.onrender.com/api/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUser(res.data.user))
